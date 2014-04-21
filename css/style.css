@@ -1,3 +1,6 @@
+/**
+ * Base preparation
+ */
 *,
 *:before,
 *:after {
@@ -12,15 +15,20 @@ body {
   padding: 0;
   width: 100%;
   height: 100%;
+  overflow: hidden;
 }
 
 body {
+  background: url('/img/backdrop.jpg') no-repeat center bottom;
+  background-size: cover;
+}
+
+body,
+.absolute-center:after,
+.absolute-center > * {
   font-family: Ubuntu, 1sans-serif;
   font-weight: 300;
   font-size: 18px;
-
-  background: url('https://atmospherejs.com/bg-nav-1200x1000.jpg') no-repeat center bottom;
-  background-size: cover;
 }
 
 h1,
@@ -29,33 +37,126 @@ h3 {
   font-weight: 300;
 }
 
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover,
+a:focus,
+a:active {
+  text-decoration: underline;
+}
+
+/**
+ * Menu
+ */
+.menu {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 30%;
+  color: #ffffff;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.menu ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.menu li {
+  font-size: 2em;
+  padding-bottom: 0.5em;
+}
+
+.menu li:last-of-type {
+  padding-bottom: 0;
+}
+
+.menu li:nth-of-type(1){ -webkit-transition-delay: .00s }
+.menu li:nth-of-type(2){ -webkit-transition-delay: .04s }
+.menu li:nth-of-type(3){ -webkit-transition-delay: .08s }
+.menu li:nth-of-type(4){ -webkit-transition-delay: .12s }
+.menu li:nth-of-type(5){ -webkit-transition-delay: .16s }
+
+body .menu li {
+  -webkit-transform: translate3d(-200%, 0, 0);
+  -moz-transform: translate3d(-200%, 0, 0);
+  -o-transform: translate3d(-200%, 0, 0);
+  -ms-transform: translate3d(-200%, 0, 0);
+  transform: translate3d(-200%, 0, 0);
+}
+
+body.show-menu .menu li {
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -o-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+
+
+
+/**
+ * Content
+ */
+
 .content {
-  position: relative;
-  width: 100%;
-  height: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
   text-align: center;
   padding: 50px;
 
   background: #ffffff;
 
-  box-shadow: rgba(0, 0, 0, 0.3) 0 0 10px 3px;
+  box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.3) ;
 }
 
 body.show-menu .content {
-  -webkit-transform: translate3d(40%, 0, 0) scale3d(0.85, 0.85, 1);
-  -moz-transform: translate3d(40%, 0, 0) scale3d(0.85, 0.85, 1);
-  -o-transform: translate3d(40%, 0, 0) scale3d(0.85, 0.85, 1);
-  -ms-transform: translate3d(40%, 0, 0) scale3d(0.85, 0.85, 1);
-  transform: translate3d(40%, 0, 0) scale3d(0.85, 0.85, 1);
+  -webkit-transform: translate3d(30%, 0, 0) scale3d(0.85, 0.85, 2);
+  -moz-transform: translate3d(30%, 0, 0) scale3d(0.85, 0.85, 1);
+  -o-transform: translate3d(30%, 0, 0) scale3d(0.85, 0.85, 1);
+  -ms-transform: translate3d(30%, 0, 0) scale3d(0.85, 0.85, 1);
+  transform: translate3d(30%, 0, 0) scale3d(0.85, 0.85, 1);
+}
+
+@media (max-width: 800px) {
+
+body.show-menu .content {
+  -webkit-transform: translate3d(55%, 0, 0) scale3d(0.85, 0.85, 1);
+  -moz-transform: translate3d(55%, 0, 0) scale3d(0.85, 0.85, 1);
+  -o-transform: translate3d(55%, 0, 0) scale3d(0.85, 0.85, 1);
+  -ms-transform: translate3d(55%, 0, 0) scale3d(0.85, 0.85, 1);
+  transform: translate3d(55%, 0, 0) scale3d(0.85, 0.85, 1);
+}
+
+}
+
+@media (max-width: 500px) {
+
+body.show-menu .content {
+  -webkit-transform: translate3d(80%, 0, 0) scale3d(0.85, 0.85, 1);
+  -moz-transform: translate3d(80%, 0, 0) scale3d(0.85, 0.85, 1);
+  -o-transform: translate3d(80%, 0, 0) scale3d(0.85, 0.85, 1);
+  -ms-transform: translate3d(80%, 0, 0) scale3d(0.85, 0.85, 1);
+  transform: translate3d(80%, 0, 0) scale3d(0.85, 0.85, 1);
+}
+
 }
 
 .menu-button {
   position: absolute;
-  top: 0.2em;
-  left: 0.4em;
-  font-size: 2em;
+  top: 0;
+  left: 0;
+  padding: 10px;
   line-height: 1em;
-  vertical-align: middle;
+  background: #ffffff;
 
   cursor: pointer;
 }
@@ -79,8 +180,35 @@ body.show-menu .overlay {
   opacity: 1;
 }
 
+/**
+ * Utilities
+ */
+
+.absolute-center {
+  text-align: center;
+  font-size: 0;
+}
+
+.absolute-center:after {
+  content: '';
+  width: 0;
+  height: 100%;
+}
+
+.absolute-center:after,
+.absolute-center > * {
+  display: inline-block;
+  vertical-align: middle;
+  text-align: left;
+}
+
+/**
+ * Animation setup
+ */
+
 .content,
-.overlay {
+.overlay,
+.menu li {
   -webkit-transform: scale3d(1, 1, 1);
   -moz-transform: scale3d(1, 1, 1);
   -o-transform: scale3d(1, 1, 1);

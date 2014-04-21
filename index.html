@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, max-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Fancy Menu</title>
 
@@ -10,12 +10,24 @@
   </head>
 
   <body>
+
+    <div class="menu absolute-center">
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Browse</a></li>
+        <li><a href="#">Legal</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+
     <div class="content">
-      <div class="menu-button">&times;</div>
+      <!-- <div class="menu-button"><span class="icon">&times;</span><span class="indicator">&lsaquo; menu</span></div> -->
+      <div class="menu-button">menu</div>
 
       <div class="overlay"></div>
 
-      <h1>Guido ☠ Jolande</h1>
+      <h1>A fancy menu by <a href="http://guido.vc/">Guido Bouman</a></h1>
     </div>
 
     <script src="/js/jquery-2.1.0.min.js"></script>
